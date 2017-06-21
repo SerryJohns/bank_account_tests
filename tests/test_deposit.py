@@ -12,10 +12,11 @@ class TestAccountDeposits(TestCase):
         self.assertEqual(self.account.balance, 20000)
 
     def test_deposit_successfully_2(self):
-        initial_bal = self.account.balance
+        self.account.deposit(7000)
+        current_bal = self.account.balance
 
         self.account.deposit(20000)
-        self.assertEqual(self.account.balance - initial_bal, 20000)
+        self.assertEqual(self.account.balance - current_bal, 20000)
         
     def test_deposit_successfully_with_message(self):
         response = self.account.deposit(3000)
