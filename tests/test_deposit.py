@@ -17,7 +17,7 @@ class TestAccountDeposits(TestCase):
         self.account.deposit(20000)
         self.assertEqual(self.account.balance - initial_bal, 20000)
 
-    def test_deposit_with_negative_overdraft(self):
+    def test_deposit_with_debt(self):
         account_current = self.bank.create_account("Account Name", "Current")
 #       Create debt
         account_current.with_draw(1000)
