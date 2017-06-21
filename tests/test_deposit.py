@@ -16,6 +16,10 @@ class TestAccountDeposits(TestCase):
 
         self.account.deposit(20000)
         self.assertEqual(self.account.balance - initial_bal, 20000)
+        
+    def test_deposit_successfully_with_message(self):
+        response = self.account.deposit(3000)
+        self.assertEqual(response, "Account credited successfully, your account balance is now {}".format(self.account.balance))
 
     def test_deposit_with_debt(self):
         account_current = self.bank.create_account("Account Name", "Current")
